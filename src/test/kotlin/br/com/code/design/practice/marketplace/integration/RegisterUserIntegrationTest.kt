@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc
 import org.springframework.http.MediaType
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.post
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
+import kotlin.test.assertTrue
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -19,6 +21,7 @@ class RegisterUserIntegrationTest {
 
     @Autowired private lateinit var mockMvc: MockMvc
     @Autowired private lateinit var userRepository: UserRepository
+    @Autowired private lateinit var passwordEncoder: PasswordEncoder
 
     @AfterEach
     fun tearDown() {
@@ -45,6 +48,7 @@ class RegisterUserIntegrationTest {
         users[0].run {
             assertEquals("user@example.com", this.login)
             assertNotNull(this.password)
+            assertTrue(passwordEncoder.matches("password123", this.password))
             assertNotNull(this.createdAt)
         }
     }

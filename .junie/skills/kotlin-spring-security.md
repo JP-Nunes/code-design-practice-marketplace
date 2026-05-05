@@ -17,6 +17,7 @@ using Spring Security version 7.0.5, the recommended way to hash passwords in ne
 ## Examples
 
 ### Hashing a password with Argon2
+
 <b>The default way</b>:
 ```kotlin
 val encoder: PasswordEncoder = Argon2Password4jPasswordEncoder()
@@ -32,5 +33,8 @@ val argon2Fn = Argon2Function.getInstance(
 )
 val encoder: PasswordEncoder = Argon2Password4jPasswordEncoder(argon2Fn)
 val result = encoder.encode("myPassword")
-assertThat(encoder.matches("myPassword", result)).isTrue()`
+assertThat(encoder.matches("myPassword", result)).isTrue()
 ```
+
+Keep in mind that the password4j lib will be necessary: `implementation("com.password4j:password4j:1.8.2")`
+
