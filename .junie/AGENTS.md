@@ -23,7 +23,7 @@
 # Security and data handling
 
 - Never log tokens or sensitive data.
-- 
+
 # Explicit prohibitions what agents must NOT do
 
 - Do not bump versions of dependencies without asking first.
