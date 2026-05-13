@@ -14,6 +14,7 @@
   1. If it is business rules that do not depend on a framework: Use unit tests.
   2. If it is a framework-dependent tool: use the framework's own testing options (e.g., Test Slices in Spring Boot).
   3. Integration tests.
+- Do not comment on code unless it is asked for.
 
 # Architecture guidelines
 

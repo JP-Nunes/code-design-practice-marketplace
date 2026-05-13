@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Size
 import org.springframework.security.crypto.password.PasswordEncoder
 
-data class UserRequest(
+data class RegisterUserRequest(
     @field:NotBlank
     @field:Email
     val login: String,
@@ -14,7 +14,7 @@ data class UserRequest(
     @field:Size(min = 6)
     val password: String
 ) {
-    fun toModel(passwordEncoder: PasswordEncoder): User {
+    fun toEntity(passwordEncoder: PasswordEncoder): User {
         val encodedPassword = passwordEncoder.encode(this.password)
             ?: throw IllegalStateException("Password encoding failed")
         return User(

@@ -18,7 +18,7 @@ all functionality that depends heavily on the framework.
   - For the response JSON, use it for the assertion.
 - When the expected JSON has dynamic fields like an auto generated `id` or `timestamp`, create a custom JSON comparator that only checks if those fields exist.
 - Create a separate directory only for the integration tests, preferably a directory called "integration" inside the test directory.
-- Name the test class with the name of functionality that it tests, e.g., `RegisterUserIntegrationTest` for the tests related to registering an `User`.
+- Name the test class with the name of functionality that it tests, e.g., `RegisterUserIntegrationTests` for the tests related to registering an `User`.
 - Make sure one test does not affect the other, e.g., cleaning the database after each test.
 
 ## Examples
@@ -58,3 +58,8 @@ fun `should be able to register a voucher in the database and return response`()
 }
 ```
 
+### Asserting equality in Value Objects
+
+Value objects equality is defined by the values of their properties. So the assertion should be done in the whole object:
+
+`assertEquals(expected, actual)`

@@ -37,4 +37,3 @@ assertThat(encoder.matches("myPassword", result)).isTrue()
 ```
 
 Keep in mind that the password4j lib will be necessary: `implementation("com.password4j:password4j:1.8.2")`
-

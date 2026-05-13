@@ -10,7 +10,7 @@ import java.util.UUID
 
 @Entity
 @Table(name = "users")
-class User(
+data class User(
     @field:NotBlank val login: String,
     @field:NotBlank val password: String,
 ) {

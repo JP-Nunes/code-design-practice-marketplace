@@ -16,8 +16,8 @@ class UserController(
 
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
-    fun register(@RequestBody @Valid request: UserRequest) {
-        val user = request.toModel(passwordEncoder)
+    fun register(@RequestBody @Valid request: RegisterUserRequest) {
+        val user = request.toEntity(passwordEncoder)
         userRepository.save(user)
     }
 }
