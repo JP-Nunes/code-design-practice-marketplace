@@ -14,6 +14,7 @@
   1. If it is business rules that do not depend on a framework: Use unit tests.
   2. If it is a framework-dependent tool: use the framework's own testing options (e.g., Test Slices in Spring Boot).
   3. Integration tests.
+- For each step of your progress run the tests and make sure they pass.
 - Do not comment on code unless it is asked for.
 
 # Architecture guidelines
@@ -28,3 +29,10 @@
 # Explicit prohibitions what agents must NOT do
 
 - Do not bump versions of dependencies without asking first.
+
+# Spring Boot
+
+Here are a few common mistakes that repeat working with Spring.
+
+- In the more recent versions the import of AutoConfigureMockMvc is now 
+`import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc`
