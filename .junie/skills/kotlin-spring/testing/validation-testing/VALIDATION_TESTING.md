@@ -12,6 +12,8 @@ all validations that an application needs to do in its borders to make sure data
 
 - To test validations on input that comes from a controller, use Spring Boot's test slice tool (`@WebMvcTest`);
   - Use it so it loads only the web layer of your Spring application;
+- Make it very clear in the test class name the validation of what feature it is testing, e.g. `RegisterProductValidationTest`,
+to refer to the validation of the registration of a product;
 
 ## Examples
 

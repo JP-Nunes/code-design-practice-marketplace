@@ -1,22 +1,19 @@
 
 ---
-name: kotlin-spring-integration-tests
-description: Provides guidance on how to proceed with writing unit tests for Kotlin + Spring applications.
+name: kotlin-spring-tests
+description: Provides guidance on how to proceed with writing tests for Kotlin + Spring applications.
 ---
 
-# Kotlin and Spring Unit Tests Skill
+# Kotlin and Spring Tests Skill
 
-This skill provides guidelines and patterns for writing unit tests for Kotlin + Spring applications.
-Use it when you need to test logic that does not depend heavily on the Spring Framework, like business logic or utility 
-extension functions
+This skill provides guidelines and patterns for writing tests for Kotlin + Spring applications.
+Use it when you need to do any sort of testing in your application.
 
 ## Guidelines
 - Use the pattern "should be able to..." for naming the test functions;
 - If mocks are necessary, prefer mockk (`testImplementation("io.mockk:mockk:1.14.4")`, check for more recent versions) over mockito;
-- Use unit tests to test behaviors that do not depend on the Spring Framework, for example:
-  - A request object being converted into an entity;
-  - A generic extension function that might be used in many places;
-  - A business logic in the entity class;
+- When the object under assertion is a value object, compare the full actual object with a full expected object instead of
+comparing the properties individually;
 
 ## Examples
 

@@ -18,6 +18,7 @@ all functionality that depends heavily on the framework.
   - For the response JSON, use it for the assertion.
 - When the expected JSON has dynamic fields like an auto generated `id` or `timestamp`, create a custom JSON comparator that only checks if those fields exist.
 - Create a separate directory only for the integration tests, preferably a directory called "integration" inside the test directory.
+ - Inside the integration tests directory, create a separate directory for each domain that the application has, e.g., "user" for the User domain.
 - Name the test class with the name of functionality that it tests, e.g., `RegisterUserIntegrationTests` for the tests related to registering an `User`.
 - Make sure one test does not affect the other, e.g., cleaning the database after each test.
 

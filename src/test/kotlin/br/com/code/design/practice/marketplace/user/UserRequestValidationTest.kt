@@ -32,7 +32,6 @@ class UserRequestValidationTest {
     @Test
     @WithMockUser
     fun `should validate login field`() {
-        // Test NotBlank and Email
         val invalidRequests = listOf(
             """{"login": "", "password": "password123"}""" to listOf("must not be blank"),
             """{"login": "invalid-email", "password": "password123"}""" to listOf("must be a well-formed email address")
@@ -68,7 +67,6 @@ class UserRequestValidationTest {
     @Test
     @WithMockUser
     fun `should validate password field`() {
-        // Test NotBlank and Size
         val invalidRequests = listOf(
             """{"login": "user@example.com", "password": ""}""" to listOf("must not be blank", "size must be between 6 and 2147483647"),
             """{"login": "user@example.com", "password": "123"}""" to listOf("size must be between 6 and 2147483647")
@@ -88,7 +86,6 @@ class UserRequestValidationTest {
             }
         }
 
-        // Test null password (HttpMessageNotReadableException)
         mockMvc.post("/users") {
             contentType = MediaType.APPLICATION_JSON
             content = """{"login": "user@example.com", "password": null}"""
